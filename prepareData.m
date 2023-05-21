@@ -9,8 +9,14 @@
 %category (1 = critico, 2 = instavel, 3 = potencialmente estavel, 4 = estavel)
 function [inputs, outputs] = prepareData(file)
 
-    %TODO
+    fileID = fopen(file);
 
-    inputs = zeros(800, 3);%TEST ONLY
-    outputs = ones(800, 1);%TEST ONLY
+    data = fscanf(fileID, "%d, %f, %f, %f, %f, %f, %f, %d", [8 800]);
+
+    inputs = data(4:6, :); 
+    inputs = inputs.'
+
+    outputs = data(8, :);
+    outputs = outputs.'
+    fclose(fileID);
 end
