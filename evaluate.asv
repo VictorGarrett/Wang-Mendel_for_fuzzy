@@ -8,20 +8,13 @@ function evaluate(fis, inputs, outputs)
         conf(outputs(i), output_i(i)) = conf(outputs(i), output_i(i)) + 1;
     end
     conf
-    acertos = 0;
     for i=1:4
-    
-        p(i) = conf(i,i)/sum(conf(:,i));
-        r(i) = conf(i,i)/sum(conf(i,:));
-        fpr(i) = (sum(conf(:,i))-conf(i,i))/sum(conf(i,:));
-        acertos =  acertos + conf(i,i);
-        f_mea(i) = (2*p(i)*r(i))/(p(i)+r(i));
+    precision(i) = conf(i,i)/sum(conf(:,i));
+    recall(i) = conf(i,i)/sum(conf(i,:));
+    fals
     end
-    
-    p
-    r
-    fpr
-    ac = acertos/sum(sum(conf))
-    f_mea
+
+    precison
+    recall
 
 end
