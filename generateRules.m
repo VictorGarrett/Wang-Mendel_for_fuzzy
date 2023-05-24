@@ -33,6 +33,6 @@ function fisout = generateRules(fis, inputData, outputData)
 
     %write all rules to the output system
     for i = 1:numel(rulecube)
-        fisout = addRule(fisout, [rulecube(i).Antecedent rulecube(i).Consequent rulecube(i).Weight 1]);
+        fisout = addRule(fisout, [rulecube(i).Antecedent rulecube(i).Consequent 1 1]);
     end
 end
