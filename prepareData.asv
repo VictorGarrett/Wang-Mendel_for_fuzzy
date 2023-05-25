@@ -23,10 +23,9 @@ function [trainInputs, validationInputs, trainValueOutputs, validationValueOutpu
     classOutputs = classOutputs.';
 
     fclose(fileID);
-  
-    
-    perm = randperm(length(inputs)).';
 
+    perm = randperm(length(inputs)).';
+    for 
     inputs = inputs(perm, :);
     valueOutputs = valueOutputs(perm);
     classOutputs = classOutputs(perm);

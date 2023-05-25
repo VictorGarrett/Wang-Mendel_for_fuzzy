@@ -1,8 +1,8 @@
 fis = createSystem();
 f_mea_best= [];
 best = 0;
-fis_best = fis;
-for i=1:10
+fis_best
+for i=1:50
     i
     aux = 1;
     [trainInputs, validationInputs, trainValueOutputs, validationValueOutputs, trainClassOutputs, validationClassOutputs] = prepareData("treino_sinais_vitais_com_label.txt");
@@ -25,4 +25,3 @@ for i=1:10
 end
  best
  f_mea_best
- writeFIS(fis_best, "fisbest");
