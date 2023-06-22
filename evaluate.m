@@ -1,4 +1,4 @@
-function f_mea_best_aux = evaluate(fis, inputs, outputs) 
+function f_mea = evaluate(fis, inputs, outputs) 
     f_mea_best_aux = [];
     [output,fuzzifiedIn,ruleOut,aggregatedOut,ruleFiring] = evalfis(fis, inputs);
     [output_v output_i] = max(evalmf(fis.Outputs(1).MembershipFunction, output));

@@ -8,21 +8,14 @@ for i=1:10
     [trainInputs, validationInputs, trainValueOutputs, validationValueOutputs, trainClassOutputs, validationClassOutputs] = prepareData("treino_sinais_vitais_com_label.txt");
 
     fis = generateRules(fis, trainInputs, trainValueOutputs, trainClassOutputs);
-    f_mea_best_aux = evaluate(fis, validationInputs , validationClassOutputs);
-    f_mea_best_aux;
-    for j=1:3
-        aux = f_mea_best_aux(j)*aux;
-    end
-     aux
-     best
-    if  aux> best
-        fis_best = fis;
-        best = aux;
-        f_mea_best = f_mea_best_aux;
-    end
-    
-    f_mea_best;
+
+    models(i) = fis;
+    model_scores(1:4, i) = evaluate(fis, validationInputs , validationClassOutputs);
 end
- best
- f_mea_best
- writeFIS(fis_best, "fisbest");
+
+model_scores_total(1:10) = model_scores(1, 1:10).*model_scores(2, 1:10).*model_scores(3, 1:10);
+[sorted_model_scores_total, score_indices] = sort(model_scores_total);
+
+best_model_index = score_indices(6);
+
+writeFIS(models(best_model_index), "fisbest");
